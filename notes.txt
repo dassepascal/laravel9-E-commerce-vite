@@ -16,3 +16,6 @@ php artisan route:list --name="products"
 
 
 installer : tiny-emitter
+probleme message erreur .....require
+solution creation du fichier eventbus.js
+

@@ -13,12 +13,11 @@
 <script setup>
 
 import useProduct from '../composables/products';
+import emitter from '../eventbus';
 const { add } =useProduct();
 
 const productId = defineProps(['productId']);
 
-var emitter = require('tiny-emitter/instance');
-//var emitter = new Emitter();
 
 const addToCart = async() => {
     await axios.get('/sanctum/csrf-cookie');// récupération du token csrf
