@@ -15,16 +15,16 @@
 <script setup>
 import { onMounted, ref } from "@vue/runtime-core";
 import useProduct from '../composables/products';
+import emitter from '../eventbus';
 
 
 const { getCount } = useProduct();
 const cartCount = ref(0);
 
-//const emitter = require('tiny-emitter/instance');
-//const emitter = new Emitter();
 
 
-//emitter.on('cartCountUpdated', (count) => cartCount.value = count);
+
+emitter.on('cartCountUpdated', (count) => cartCount.value = count);
 
 onMounted( async()=>{
 
