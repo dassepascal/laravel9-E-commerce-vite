@@ -1,0 +1,18 @@
+apres vue
+lea routes + controller
+
+php artisan make:controller Api\CartController --api
+
+routes/api
+Route::middleware(['auth:sanctum'])->group(function (){
+    Route::get('/user', function (Request $request){
+        return $request->user();
+    });
+});
+
+Route::apiResource('products',CartController::class);
+
+php artisan route:list --name="products"
+
+
+installer : tiny-emitter

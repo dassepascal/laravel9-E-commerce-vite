@@ -32,6 +32,8 @@
             </main>
         </div>
         {{-- Scripte --}}
+        
+
         @vite('resources/js/app.js')
     </body>
 </html>

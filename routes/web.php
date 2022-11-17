@@ -33,6 +33,4 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/products',[ProductController::class,'index'])->name('products.index');
 
-// Route::get('/', function () {
-//     return view('app');
-// });
+
