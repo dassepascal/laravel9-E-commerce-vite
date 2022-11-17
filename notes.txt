@@ -25,6 +25,12 @@ message erreur:<Attempt to read property "name" on null>
 solution dans navigation blade ajouter le point d'interrogation ? pour si c'est nul  a tous les "Auth::user()" {{  Auth::user()?->name }}
 
 vue toaster
+lien: https://github.com/MeForma/vue-toaster
 npm install @meforma/vue-toaster
 
+mise en place de provide dans app.js
+ app.use(Toaster).provide('toast',app.config.globalProperties.$toast)
 
+moteur de recherche :tailwindcomponent
+
+cart component : https://tailwindcomponents.com/search?query=cart+product
