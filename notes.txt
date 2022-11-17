@@ -22,4 +22,9 @@ solution creation du fichier eventbus.js
 
 test deconnection avec logout
 message erreur:<Attempt to read property "name" on null>
-solution dans navigation blade ajouter le point d'interrogation ? pour si c'est nul  {{  Auth::user()?->name }}
+solution dans navigation blade ajouter le point d'interrogation ? pour si c'est nul  a tous les "Auth::user()" {{  Auth::user()?->name }}
+
+vue toaster
+npm install @meforma/vue-toaster
+
+
