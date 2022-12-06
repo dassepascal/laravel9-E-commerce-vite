@@ -42,15 +42,15 @@
                   </form>
                 </td>
                 <td class="justify-center md:justify-end md:flex mt-6">
-                  <div class="relative flex flex-row w-full h-8">
+                  <div class="relative flex flex-row w-full h-8 space-x-3x">
                     <button
                      v-on:click.prevent="decrease(product.id)">
                      -</button>
                     <input
                       readonly
-                      type="input"
+
                       :value="product.quantity"
-                      class="w-full font-semibold text-center text-gray-700 bg-gray-200 outline-none focus:outline-none hover:text-black focus:text-black"
+                      class="w-full font-semibold text-center text-gray-700 bg-gray-200 outline-none focus:outline-none hover:text-black focus:text-black mx-3"
                     />
                     <button
                      v-on:click.prevent="increase(product.id)">
@@ -74,13 +74,27 @@
 
           </tbody>
         </table>
+       <hr class="pb-6 mt-6">
+       <div class="p-4 bg-gray-100 rounded-full">
+        <h1 class="ml-2 font-bold uppercase">Order Details</h1>
+       </div>
+       <div class="p-4">
+        <div class="flex justify-between pt-4 border-b">
+            <div class="lg:px-4 jg:py-2 m-2 lg:text-lg font-bold text-center text-gray-800">
+                Total
+            </div>
+            <div class="lg:px-4 jg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">
+                {{ cartTotal }}
+            </div>
+        </div>
+       </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue';
 import useProduct from '../composables/products/index.js';
 import { formatPrice } from '../helpers';
 const {
@@ -91,6 +105,10 @@ const {
   destroyProduct,
 } = useProduct()
 
+const cartTotal = computed(()=> {
+    let price = Object.values(products.value).reduce((acc,product) => acc += product.price * product.quantity, 0);
+    return formatPrice(price)
+})
 
 
 const increase = async(id) => {
