@@ -8,7 +8,7 @@
      Ajouter au panier
     </button>
   </div>
-  <template>erere<div class="text-white">toto +titi</div></template>
+
 </template>
 
 <script setup>
@@ -19,14 +19,19 @@ const { add } =useProduct();
 
 const productId = defineProps(['productId']);
 const toast = inject('toast');
-
+// const { getProducts}= useProduct();
 
 const addToCart = async() => {
+    // await getProducts();
     await axios.get('/sanctum/csrf-cookie');// récupération du token csrf
     await axios.get('/api/user')
     .then(async(res) => {
        let cartCount = await add(productId);
+       console.log(cartCount);
+       console.log('mis a jour quantite produit navbar');
        emitter.emit('cartCountUpdated', cartCount);
+       console.log('majemitter',emitter.emit('cartCountUpdated', cartCount));
+     console.log('ajout product');
        toast.success('Produit ajouté au panier.')
     })
     .catch(() => {

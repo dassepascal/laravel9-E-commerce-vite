@@ -3,5 +3,5 @@
         Récupitulatif de votre panier
 
     </x-slot>
-    <shopping-cart></shopping-cart>
+    <shopping-cart> </shopping-cart>
 </x-app-layout>

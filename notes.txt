@@ -34,3 +34,63 @@ mise en place de provide dans app.js
 moteur de recherche :tailwindcomponent
 
 cart component : https://tailwindcomponents.com/search?query=cart+product
+
+memo : bloqué pas d'affichage au niveau de la boucle dans le 2 eme template
+messages erreurs: [Vue warn]: Property "open" was accessed during render but is not defined on instance.
+  at <App>
+  [Vue warn]: Property "products" was accessed during render but is not defined on instance.
+  at <ShoppingCart>
+  at <App>
+
+formater le price : creation d'un helper
+methode : format price javascript : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+
+
+creation button + - => methode increase et decrease
+creation des routes dans product.index :
+ const increaseQuantity = (id) => {
+    await axios.get('/api/products/increase/' + id);
+}
+const decreaseQuantity = (id) => {
+    await axios.get('/api/products/decrease/' - id);
+}
+
+creation des 2 routes dans api.php
+
+creation de la function increase dans CartController
+
+ensuite dans repositories.CartRepository
+
+on cree la function  :
+public function increase($id){
+    \Cart::session(auth()->user()->id)
+    ->update($id, [
+        'quantity' =>+1
+    ]);
+}
+
+public function decrease($id){
+    \Cart::session(auth()->user()->id)
+    ->update($id, [
+        'quantity' =>-1
+    ]);
+}
+
+
+
+rafraichir le front avec await getProducts() dans ShoppingCart.vue
+
+const increase = async(id) => {
+    await increaseQuantity(id);
+    await getProducts();
+}
+
+const decrease =async (id) => {
+    await decreaseQuantity(id);
+    await getProducts();
+}
+const destroy = async (id)=>{
+    await destroyProduct(id);
+    await getProducts();
+}
+

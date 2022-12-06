@@ -27,7 +27,7 @@
                 <add-to-cart :product-id ="{{  $product->id }}"></add-to-cart>
 
 
-              {{-- <button class="bg-indigo-500 text-white p-2">Ajouter au panier</button> --}}
+             
 
             </div>
 
