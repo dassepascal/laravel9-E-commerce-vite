@@ -24,13 +24,13 @@
 const {
     getClientSecret,
     loadStripeElements,
-    handleSubmit,
-    checkStatus
+    //handleSubmit,
+    //checkStatus
 } = useStripe();
 onMounted(async () => {
     await getClientSecret();
     await loadStripeElements();
-   await checkStatus();
+   //await checkStatus();
 });
 </script>
 
