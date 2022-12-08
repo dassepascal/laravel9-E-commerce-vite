@@ -20,11 +20,12 @@ import emitter from '../eventbus';
 
 const { getCount } = useProduct();
 const cartCount = ref(0);
+// todo
+// mise a jour du cartCount
+//const emitter = require('tiny-emitter/instance');
 
-
-
-
-emitter.on('cartCountUpdated', (count) => cartCount.value = count);
+const test =emitter.on('cartCountUpdated', (count) => cartCount.value = count);
+console.log(test);
 
 onMounted( async()=>{
 

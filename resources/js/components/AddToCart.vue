@@ -19,9 +19,10 @@ const { add } =useProduct();
 
 const productId = defineProps(['productId']);
 const toast = inject('toast');
-// const { getProducts}= useProduct();
+ //const { getProducts}= useProduct();
 
 const addToCart = async() => {
+    
     // await getProducts();
     await axios.get('/sanctum/csrf-cookie');// récupération du token csrf
     await axios.get('/api/user')

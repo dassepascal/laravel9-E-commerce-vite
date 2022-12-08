@@ -94,3 +94,13 @@ const destroy = async (id)=>{
     await getProducts();
 }
 
+
+stripe
+pb apres composer install stripe
+message : Script @php artisan package:discover --ansi handling the post-autoload-dump event returned with error code 1
+
+
+ne pas oublier de mettre
+:  <script src="checkout.js" defer></script>
+ dans layouts.app.blade.php
+

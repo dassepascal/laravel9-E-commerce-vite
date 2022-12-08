@@ -5,6 +5,7 @@ export default function useProduct() {
 
 
     const products = ref([]);
+    const cartCount = ref(0);
 
 
     const getProducts = async () => {
@@ -13,6 +14,8 @@ export default function useProduct() {
         products.value = response.data.cartContent;
         // console.log(products.value);
         // return response.data.cartContent;
+        //return response.data.cartCount;
+        cartCount.value = response.data.cartCount;
 
     }
 
@@ -42,7 +45,7 @@ export default function useProduct() {
     const decreaseQuantity = async (id) => {
 
          await axios.get('/api/products/decrease/' + id);
-        
+
     }
 
     const destroyProduct = async (id) => {
@@ -60,7 +63,8 @@ export default function useProduct() {
         getProducts,
         increaseQuantity,
         decreaseQuantity,
-        destroyProduct
+        destroyProduct,
+        cartCount
     }
 
 }

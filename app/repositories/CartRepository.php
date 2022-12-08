@@ -47,6 +47,9 @@ public function remove($id){
     \Cart::session(auth()->user()->id)->remove($id);
 
 }
+public function total(){
+    return \Cart::session(auth()->user()->id)->getTotal();
+}
 
 
     public function content(){
@@ -59,5 +62,20 @@ public function remove($id){
     public function count()
     {
         return $this->content()->sum('quantity');
+    }
+
+    public function jsonOrderItems()
+    {
+        $this
+        ->content()
+        ->map(function($item){
+            return [
+                'name'=> $item->name,
+                'quantity' =>$item->quantity,
+                'price'=>$item->price,
+            ];
+
+        })
+        ->toJson();
     }
 }
