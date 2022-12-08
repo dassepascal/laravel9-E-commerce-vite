@@ -6,11 +6,14 @@ export default defineConfig({
     plugins: [
         vue({
             template: {
-                compilerOptions: {
-                  isCustomElement: (tag) => ['md-linedivider'].includes(tag),
+              compilerOptions: {
+                isCustomElement: (tag) => {
+                  return tag.startsWith('ion-') // (return true)
                 }
+              }
             }
-        }),
+          }),
+
         laravel({
             input: [
                 'resources/css/app.css',

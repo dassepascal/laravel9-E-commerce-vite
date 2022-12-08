@@ -101,6 +101,6 @@ message : Script @php artisan package:discover --ansi handling the post-autoload
 
 
 ne pas oublier de mettre
-:  <script src="checkout.js" defer></script>
+:  <script src="https://js.stripe.com/v3/"></script>
  dans layouts.app.blade.php
 

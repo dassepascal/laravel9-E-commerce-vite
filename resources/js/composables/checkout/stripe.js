@@ -18,12 +18,12 @@ export default function useStripe() {
 
         clientSecret.value = secret;
     }
-    // const loadStripeElements = async () => {
-    //     elements.value = stripe.value.elements({clientSecret: clientSecret.value});
+    const loadStripeElements = async () => {
+        elements.value = stripe.value.elements({clientSecret: clientSecret.value});
 
-    //     paymentElement.value = elements.value.create("payment");
-    //     paymentElement.value.mount("#payment-element");
-    // }
+        paymentElement.value = elements.value.create("payment");
+        paymentElement.value.mount("#payment-element");
+    }
 
          return {
             getClientSecret,

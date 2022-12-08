@@ -2,7 +2,7 @@
 
 <!-- Display a payment form -->
 <div class="form-container">
-    <h1>toto</h1>
+
     <form >
         <h1 id="payment-form" ></h1>
       <div id="payment-element">
@@ -21,17 +21,17 @@
 <script setup>
  import { onMounted } from 'vue';
  import useStripe from '../composables/checkout/stripe.js';
-// const {
-//     getClientSecret,
-//     loadStripeElements,
-//     handleSubmit,
-//     checkStatus
-// } = useStripe();
-// onMounted(async () => {
-//     await getClientSecret();
-//     await loadStripeElements();
-//    await checkStatus();
-// });
+const {
+    getClientSecret,
+    loadStripeElements,
+    handleSubmit,
+    checkStatus
+} = useStripe();
+onMounted(async () => {
+    await getClientSecret();
+    await loadStripeElements();
+   await checkStatus();
+});
 </script>
 
 <style scoped>
